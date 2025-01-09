@@ -22,4 +22,14 @@ class UserModel {
       isOnline: json['isOnline'] ?? false,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'avatar': avatar,
+      'isOnline': isOnline,
+    };
+  }
 }

@@ -1,25 +1,33 @@
+// lib/main.dart
 import 'package:flutter/material.dart';
-
-import 'screen/login/welcome.dart';
+import 'package:provider/provider.dart';
+import 'feature/auth/screen/login/welcome.dart';
+import 'feature/auth/provider/auth_provider.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+      ],
+      child: MaterialApp(
+        title: 'Chat App',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const Welcome(title: 'Welcome'),
+        },
       ),
-      home: const Welcome(title: 'Praktikum Uts'),
     );
   }
 }

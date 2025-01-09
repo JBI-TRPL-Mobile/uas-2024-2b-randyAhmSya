@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:template_project/screen/login/register.dart';
-
 import 'login.dart';
+import 'register.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key, required String title});
