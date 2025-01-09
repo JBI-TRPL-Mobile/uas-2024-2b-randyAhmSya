@@ -59,7 +59,11 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  Future<bool> register(String name, String email, String password) async {
+  Future<bool> register(
+    String name,
+    String email,
+    String password,
+  ) async {
     _isLoading = true;
     notifyListeners();
 
@@ -81,13 +85,10 @@ class AuthProvider with ChangeNotifier {
         isOnline: true,
       );
 
-      // Tambahkan pengguna baru ke dalam daftar pengguna
       _users.add(newUser);
 
-      // Simpan daftar pengguna yang diperbarui ke dalam file JSON
       await FileHandler.writeUsers(_users);
 
-      // Set pengguna saat ini ke pengguna baru
       _currentUser = newUser;
 
       _isLoading = false;

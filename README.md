@@ -15,3 +15,20 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+nama: randy Ahmad syaputra
+nim: 362358302027
+kelas: 2bTRPL
+
+
+gambar pertama sebelum login dan register
+![alt text](image.png)
+
+register
+![alt text](image-1.png)
+
+login
+![alt text](image-2.png)
+
+
