@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'feature/auth/provider/auth_provider.dart';
+import 'feature/auth/screen/feature/chatdetail.dart';
+import 'feature/auth/screen/feature/chatlist.dart';
 import 'feature/auth/screen/login/welcome.dart';
 
 void main() {
@@ -25,9 +27,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => const Welcome(
-                title: 'test',
-              ),
+          '/': (context) => const ChatListScreen(),
         },
       ),
     );

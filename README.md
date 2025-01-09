@@ -32,3 +32,12 @@ login
 ![alt text](image-2.png)
 
 
+
+detail chat
+![alt text](image-3.png)
+
+
+chatlist
+![alt text](image-4.png)
+
+

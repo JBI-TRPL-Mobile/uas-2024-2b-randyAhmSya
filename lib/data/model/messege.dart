@@ -26,6 +26,8 @@ class Messegemodel {
     );
   }
 
+  String get content => null;
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,

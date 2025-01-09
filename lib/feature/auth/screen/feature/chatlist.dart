@@ -45,21 +45,8 @@ class ChatListScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final message = chatProvider.messages[index];
                     return ListTile(
-                      leading: CircleAvatar(
-                          // Implement user avatar
-                          ),
-                      title: Text('User Name'), // Implement user name
-                      subtitle: Text(message.messege),
-                      trailing: Text(
-                        '${message.timestamp.hour}:${message.timestamp.minute}',
-                      ),
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/chat/detail',
-                          arguments: message.senderId,
-                        );
-                      },
+                      title: Text('User Name'),
+                      subtitle: Text('mama'),
                     );
                   },
                 );
