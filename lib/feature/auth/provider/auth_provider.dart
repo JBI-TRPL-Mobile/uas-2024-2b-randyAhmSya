@@ -1,7 +1,8 @@
+// lib/features/auth/providers/auth_provider.dart
 import 'package:flutter/material.dart';
-import 'package:template_project/data/model/user_model.dart';
 
 import '../../../core/utils/handler.dart';
+import '../../../data/model/user_model.dart';
 
 class AuthProvider with ChangeNotifier {
   UserModel? _currentUser;
@@ -17,7 +18,10 @@ class AuthProvider with ChangeNotifier {
 
     try {
       final usersData = await FileHandler.readUsers();
-      _users = usersData.map((user) => UserModel.fromJson(user)).toList();
+      _users = usersData
+          .where((user) => user is Map)
+          .map((user) => UserModel.fromJson(user))
+          .toList();
     } catch (e) {
       print('Error loading users: $e');
     }
@@ -72,15 +76,20 @@ class AuthProvider with ChangeNotifier {
         id: DateTime.now().millisecondsSinceEpoch.toString(),
         name: name,
         email: email,
+        password: password,
         avatar: 'https://via.placeholder.com/150',
         isOnline: true,
       );
 
+      // Tambahkan pengguna baru ke dalam daftar pengguna
       _users.add(newUser);
-      await FileHandler.writeUsers(
-          _users.map((user) => user.toJson()).toList());
 
+      // Simpan daftar pengguna yang diperbarui ke dalam file JSON
+      await FileHandler.writeUsers(_users);
+
+      // Set pengguna saat ini ke pengguna baru
       _currentUser = newUser;
+
       _isLoading = false;
       notifyListeners();
       return true;

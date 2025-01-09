@@ -1,8 +1,8 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'feature/auth/screen/login/welcome.dart';
 import 'feature/auth/provider/auth_provider.dart';
+import 'feature/auth/screen/login/welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,9 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => const Welcome(title: 'Welcome'),
+          '/': (context) => const Welcome(
+                title: 'test',
+              ),
         },
       ),
     );

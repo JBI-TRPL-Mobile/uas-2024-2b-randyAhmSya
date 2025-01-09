@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
+import '../../data/model/user_model.dart';
+
 class FileHandler {
   static Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
@@ -28,8 +30,9 @@ class FileHandler {
     }
   }
 
-  static Future<void> writeUsers(List<dynamic> users) async {
+  static Future<void> writeUsers(List<UserModel> users) async {
     final file = await _userFile;
-    await file.writeAsString(json.encode({"users": users}));
+    final usersToJson = users.map((user) => user.toJson()).toList();
+    await file.writeAsString(jsonEncode({"users": usersToJson}));
   }
 }
